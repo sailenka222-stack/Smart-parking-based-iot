@@ -1,0 +1,43 @@
+.page--narrow {
+  max-width: 480px;
+}
+
+.field {
+  display: block;
+  margin-bottom: 18px;
+}
+
+.field span {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  background: var(--asphalt);
+  border: 1px solid var(--panel-line);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 15px;
+  color: var(--text);
+  font-family: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.field input:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--yellow-dim);
+  box-shadow: 0 0 0 3px rgba(245, 183, 0, 0.15);
+}
+
+#register-form .btn {
+  width: 100%;
+  margin-top: 6px;
+}

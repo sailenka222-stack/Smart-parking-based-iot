@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Arena · Visualization</title>
+    <style>
+        :root {
+            --neon-blue: #00f0ff;
+            --neon-cyan: #00ffcc;
+            --neon-green: #39ff6a;
+            --neon-yellow: #ffee00;
+            --bg-dark: #12181f;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: hidden;
+        }
+
+        .topbar {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 28px;
+            box-sizing: border-box;
+            border-bottom: 1px solid rgba(0, 255, 204, 0.15);
+        }
+
+        .topbar a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 0.06em;
+            border: 1px solid rgba(0, 255, 204, 0.3);
+            padding: 7px 14px;
+            border-radius: 6px;
+        }
+
+        .topbar a:hover { background: rgba(0, 255, 204, 0.08); }
+
+        .topbar__brand {
+            color: #fff;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 0 0 8px var(--neon-cyan);
+        }
+
+        .parking-system-container {
+            width: 1000px;
+            max-width: 96vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            padding: 30px 20px;
+        }
+
+        #status-msg {
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 12.5px;
+            color: #ff5d5d;
+            background: rgba(255, 93, 93, 0.08);
+            border: 1px solid rgba(255, 93, 93, 0.3);
+            border-radius: 8px;
+            padding: 10px 14px;
+        }
+
+        .parking-lot {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background: radial-gradient(circle at center, #1a2630 0%, #0d131a 100%);
+            border-top: 4px solid var(--neon-blue);
+            border-bottom: 4px solid var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2), inset 0 0 30px rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+
+        .parking-lot::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                linear-gradient(90deg, rgba(0, 255, 204, 0.03) 1px, transparent 1px),
+                linear-gradient(0deg, rgba(0, 255, 204, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+        }
+
+        .slot-divider {
+            position: absolute;
+            top: 0;
+            height: 220px;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--neon-cyan), rgba(0, 255, 204, 0.4));
+            box-shadow: 0 0 12px var(--neon-cyan);
+        }
+        .slot-divider::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -18px;
+            width: 40px;
+            height: 4px;
+            background: var(--neon-cyan);
+            box-shadow: 0 0 12px var(--neon-cyan);
+        }
+
+        .div-1 { left: 24%; }
+        .div-2 { left: 48%; }
+        .div-3 { left: 72%; }
+
+        .parking-slot {
+            position: relative;
+            width: 20%;
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 20px;
+        }
+
+        .slot-label {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 5px #fff, 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            transition: text-shadow 0.3s ease, color 0.3s ease;
+        }
+
+        /* Occupied state: slot glows green instead of cyan */
+        .parking-slot.occupied .slot-label {
+            text-shadow: 0 0 6px #fff, 0 0 14px var(--neon-green), 0 0 26px var(--neon-green);
+        }
+
+        .indicator-bulb {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: #2a3540;
+            border: 2px solid #4a5a6a;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.6);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .parking-slot.occupied .indicator-bulb {
+            background-color: var(--neon-green);
+            border-color: var(--neon-green);
+            box-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green);
+        }
+
+        .slot-car {
+            width: 110px;
+            margin-top: 24px;
+            opacity: 0;
+            transform: rotate(90deg) translateY(-8px);
+            transform-origin: center center;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            filter:
+                drop-shadow(0 0 2px var(--neon-green))
+                drop-shadow(0 0 5px var(--neon-green));
+        }
+
+        .parking-slot.occupied .slot-car {
+            opacity: 1;
+            transform: rotate(90deg) translateY(0);
+        }
+
+        /* Reserved-for-future slots (3 and 4): dimmed, no live data */
+        .parking-slot.reserved {
+            opacity: 0.35;
+        }
+
+        .reserved-tag {
+            margin-top: 14px;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            color: var(--neon-yellow);
+            border: 1px dashed rgba(255, 238, 0, 0.4);
+            padding: 5px 10px;
+            border-radius: 6px;
+        }
+
+        .legend {
+            display: flex;
+            gap: 24px;
+            font-size: 12px;
+            color: #9ba0ac;
+        }
+
+        .legend span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .legend .dot.green { background: var(--neon-green); box-shadow: 0 0 8px var(--neon-green); }
+        .legend .dot.grey { background: #2a3540; border: 2px solid #4a5a6a; }
+    </style>
+</head>
+<body>
+
+    <header class="topbar">
+        <span class="topbar__brand">SMART PARKING · VISUALIZATION</span>
+        <a href="home.html">← Home</a>
+    </header>
+
+    <div class="parking-system-container">
+
+        <div id="status-msg" hidden></div>
+
+        <div class="parking-lot">
+            <div class="slot-divider div-1"></div>
+            <div class="slot-divider div-2"></div>
+            <div class="slot-divider div-3"></div>
+
+            <div class="parking-slot" id="slot-1">
+                <div class="slot-label">SLOT 1</div>
+                <div class="indicator-bulb"></div>
+                <img class="slot-car" src="images/car2.png" alt="Car">
+            </div>
+
+            <div class="parking-slot" id="slot-2">
+                <div class="slot-label">SLOT 2</div>
+                <div class="indicator-bulb"></div>
+                <img class="slot-car" src="images/car1.png" alt="Car">
+            </div>
+
+            <div class="parking-slot reserved">
+                <div class="slot-label">SLOT 3</div>
+                <div class="reserved-tag">RESERVED · COMING SOON</div>
+            </div>
+
+            <div class="parking-slot reserved">
+                <div class="slot-label">SLOT 4</div>
+                <div class="reserved-tag">RESERVED · COMING SOON</div>
+            </div>
+        </div>
+
+        <div class="legend">
+            <span><span class="dot green"></span> Occupied (live from sensor)</span>
+            <span><span class="dot grey"></span> Empty</span>
+        </div>
+
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/visualization.js"></script>
+</body>
+</html>

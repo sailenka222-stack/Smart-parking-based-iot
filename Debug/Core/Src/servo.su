@@ -1,0 +1,4 @@
+../Core/Src/servo.c:14:6:Servo_Init	8	static
+../Core/Src/servo.c:22:6:Servo_OpenSlow	16	static
+../Core/Src/servo.c:38:6:Servo_CloseSlow	16	static
+../Core/Src/servo.c:53:6:OpenGate	16	static

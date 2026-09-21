@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parking Arena · Home</title>
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/home.css">
+</head>
+<body class="with-sidebar">
+
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <span class="dot"></span>
+      <span>Parking Arena</span>
+    </div>
+
+    <nav class="sidebar__nav">
+      <a class="sidebar__link active" href="home.html">
+        <span class="sidebar__icon">◆</span> Home
+      </a>
+      <a class="sidebar__link" href="dashboard.html">
+        <span class="sidebar__icon">▤</span> Dashboard
+      </a>
+      <a class="sidebar__link" href="users.html">
+        <span class="sidebar__icon">☺</span> Users
+      </a>
+      <a class="sidebar__link" href="register.html">
+        <span class="sidebar__icon">+</span> Register
+      </a>
+      <a class="sidebar__link" href="visualization.html">
+        <span class="sidebar__icon">▦</span> Visualization
+      </a>
+      <a class="sidebar__link" href="camera.html">
+        <span class="sidebar__icon">◎</span> Camera
+      </a>
+      <a class="sidebar__link" href="history.html">
+        <span class="sidebar__icon">↺</span> History
+      </a>
+    </nav>
+
+    <button id="logout-btn" class="sidebar__logout">Sign out</button>
+  </aside>
+
+  <main class="content">
+    <section class="hero">
+      <p class="eyebrow">PARKING ARENA · CONTROL CENTER</p>
+      <h1>Manage your parking lot,<br>end to end.</h1>
+      <p class="hero__sub">Track live slot occupancy, manage registered cards, review entry/exit history, and keep an eye on revenue — all from one place.</p>
+      <div class="hero__actions">
+        <a class="btn" href="dashboard.html">Open dashboard</a>
+        <a class="btn btn--ghost" href="visualization.html">View live slots</a>
+      </div>
+    </section>
+
+    <section class="quick-grid">
+      <a class="tile" href="dashboard.html">
+        <span class="tile__index">01</span>
+        <h2>Dashboard</h2>
+        <p>Live slot availability, occupancy and revenue.</p>
+      </a>
+
+      <a class="tile" href="users.html">
+        <span class="tile__index">02</span>
+        <h2>Users</h2>
+        <p>View and edit every registered card, vehicle and wallet.</p>
+      </a>
+
+      <a class="tile" href="register.html">
+        <span class="tile__index">03</span>
+        <h2>Register</h2>
+        <p>Add a new RFID card and link it to a user.</p>
+      </a>
+
+      <a class="tile" href="visualization.html">
+        <span class="tile__index">04</span>
+        <h2>Visualization</h2>
+        <p>Live slot-by-slot view — see exactly which spot has a car.</p>
+      </a>
+
+      <a class="tile" href="camera.html">
+        <span class="tile__index">05</span>
+        <h2>Camera</h2>
+        <p>Live feed at the gate for visual verification.</p>
+      </a>
+
+      <a class="tile" href="history.html">
+        <span class="tile__index">06</span>
+        <h2>History</h2>
+        <p>Entry, exit and fee logs for every visit.</p>
+      </a>
+    </section>
+  </main>
+
+  <script src="js/home.js"></script>
+</body>
+</html>

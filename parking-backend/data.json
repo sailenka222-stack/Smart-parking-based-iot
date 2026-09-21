@@ -1,0 +1,182 @@
+{
+  "users": {
+    "43017215": {
+      "name": "Mohit",
+      "status": "OUTSIDE",
+      "type": "Car",
+      "vehicle": "AP31EK41",
+      "wallet": 275,
+      "entryTime": ""
+    },
+    "73F9CB15": {
+      "name": "Virat",
+      "vehicle": "DL18VK17",
+      "type": "Car",
+      "wallet": 485,
+      "status": "OUTSIDE",
+      "entryTime": ""
+    }
+  },
+  "logs": [
+    {
+      "uid": "43017215",
+      "event": "ENTRY",
+      "fee": 0,
+      "timestamp": "2026-07-05T01:38:08.586Z"
+    },
+    {
+      "uid": "43017215",
+      "event": "ENTRY",
+      "fee": 0,
+      "timestamp": "2026-07-05T01:43:33.745Z"
+    },
+    {
+      "uid": "43017215",
+      "event": "EXIT",
+      "fee": 5,
+      "timestamp": "2026-07-05T01:44:18.904Z"
+    },
+    {
+      "uid": "43017215",
+      "event": "ENTRY",
+      "fee": 0,
+      "timestamp": "2026-07-05T06:23:08.796Z"
+    },
+    {
+      "uid": "43017215",
+      "event": "EXIT",
+      "fee": 5,
+      "timestamp": "2026-07-05T06:25:50.134Z"
+    },
+    {
+      "uid": "43017215",
+      "event": "ENTRY",
+      "fee": 0,
+      "timestamp": "2026-07-05T06:28:22.677Z"
+    },
+    {
+      "uid": "43017215",
+      "event": "EXIT",
+      "fee": 5,
+      "timestamp": "2026-07-05T06:32:58.874Z"
+    },
+    {
+      "uid": "43017215",
+      "event": "ENTRY",
+      "fee": 0,
+      "timestamp": "2026-07-05T06:37:17.356Z"
+    },
+    {
+      "uid": "43017215",
+      "event": "EXIT",
+      "fee": 5,
+      "timestamp": "2026-07-05T06:41:31.523Z"
+    },
+    {
+      "uid": "43017215",
+      "event": "ENTRY",
+      "fee": 0,
+      "timestamp": "2026-07-05T09:30:45.307Z"
+    },
+    {
+      "uid": "43017215",
+      "event": "EXIT",
+      "fee": 35,
+      "timestamp": "2026-07-05T09:36:54.117Z"
+    },
+    {
+      "uid": "43017215",
+      "event": "ENTRY",
+      "fee": 0,
+      "timestamp": "2026-07-05T11:47:19.870Z"
+    },
+    {
+      "uid": "43017215",
+      "event": "EXIT",
+      "fee": 20,
+      "timestamp": "2026-07-05T11:50:34.797Z"
+    },
+    {
+      "uid": "43017215",
+      "event": "ENTRY",
+      "fee": 0,
+      "timestamp": "2026-07-05T12:08:42.472Z"
+    },
+    {
+      "uid": "43017215",
+      "event": "EXIT",
+      "fee": 110,
+      "timestamp": "2026-07-05T12:29:56.150Z"
+    },
+    {
+      "uid": "73F9CB15",
+      "event": "ENTRY",
+      "fee": 0,
+      "timestamp": "2026-07-05T12:36:54.364Z"
+    },
+    {
+      "uid": "43017215",
+      "event": "ENTRY",
+      "fee": 0,
+      "timestamp": "2026-07-05T12:53:08.882Z"
+    },
+    {
+      "uid": "43017215",
+      "event": "ENTRY",
+      "fee": 0,
+      "timestamp": "2026-07-05T12:59:17.508Z"
+    },
+    {
+      "uid": "43017215",
+      "event": "EXIT",
+      "fee": 5,
+      "timestamp": "2026-07-05T13:00:10.965Z"
+    },
+    {
+      "uid": "73F9CB15",
+      "event": "EXIT",
+      "fee": 5,
+      "timestamp": "2026-07-05T16:01:26.760Z"
+    },
+    {
+      "uid": "73F9CB15",
+      "event": "ENTRY",
+      "fee": 0,
+      "timestamp": "2026-07-05T16:03:00.736Z"
+    },
+    {
+      "uid": "43017215",
+      "event": "ENTRY",
+      "fee": 0,
+      "timestamp": "2026-07-05T16:06:28.330Z"
+    },
+    {
+      "uid": "73F9CB15",
+      "event": "EXIT",
+      "fee": 750,
+      "timestamp": "2026-07-05T16:10:06.629Z"
+    },
+    {
+      "uid": "73F9CB15",
+      "event": "ENTRY",
+      "fee": 0,
+      "timestamp": "2026-07-05T16:11:44.840Z"
+    },
+    {
+      "uid": "43017215",
+      "event": "EXIT",
+      "fee": 35,
+      "timestamp": "2026-07-05T16:13:28.591Z"
+    },
+    {
+      "uid": "73F9CB15",
+      "event": "EXIT",
+      "fee": 15,
+      "timestamp": "2026-07-05T16:14:45.576Z"
+    }
+  ],
+  "slots": {
+    "slot1": false,
+    "slot2": false
+  }
+}

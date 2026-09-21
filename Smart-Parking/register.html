@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Parking · Register</title>
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar__left">
+      <a class="topbar__brand" href="home.html"><span class="dot"></span> Smart Parking</a>
+    </div>
+    <a class="topbar__back" href="home.html">← Home</a>
+  </header>
+
+  <main class="page page--narrow">
+    <p class="eyebrow">NEW CARD</p>
+    <h1>Register user</h1>
+
+    <div id="status-msg" class="status-msg" hidden></div>
+
+    <form id="register-form" class="panel" novalidate>
+      <label class="field">
+        <span>Card UID</span>
+        <input type="text" id="uid" placeholder="e.g. 43017215" required>
+      </label>
+
+      <label class="field">
+        <span>Name</span>
+        <input type="text" id="name" placeholder="e.g. Mohit" required>
+      </label>
+
+      <label class="field">
+        <span>Vehicle number</span>
+        <input type="text" id="vehicle" placeholder="e.g. AP31EK41" required>
+      </label>
+
+      <label class="field">
+        <span>Vehicle type</span>
+        <select id="type">
+          <option value="Car">Car</option>
+          <option value="Bike">Bike</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span>Starting wallet balance</span>
+        <input type="number" id="wallet" value="500" min="0" required>
+      </label>
+
+      <button type="submit" class="btn">Register user</button>
+    </form>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/register.js"></script>
+</body>
+</html>

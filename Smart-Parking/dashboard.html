@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parking Arena · Dashboard</title>
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar__left">
+      <a class="topbar__brand" href="home.html"><span class="dot"></span> Parking Arena</a>
+    </div>
+    <a class="topbar__back" href="home.html">← Home</a>
+  </header>
+
+  <main class="page">
+    <p class="eyebrow">LIVE STATUS</p>
+    <h1>Dashboard</h1>
+
+    <div id="status-msg" class="status-msg" hidden></div>
+
+    <div class="stat-grid">
+      <div class="stat panel">
+        <span class="stat__label">Total slots</span>
+        <span id="stat-total" class="stat__value">--</span>
+      </div>
+      <div class="stat panel">
+        <span class="stat__label">Occupied</span>
+        <span id="stat-occupied" class="stat__value">--</span>
+      </div>
+      <div class="stat panel">
+        <span class="stat__label">Available</span>
+        <span id="stat-available" class="stat__value stat__value--yellow">--</span>
+      </div>
+      <div class="stat panel">
+        <span class="stat__label">Total revenue</span>
+        <span id="stat-revenue" class="stat__value stat__value--yellow">--</span>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-top:20px;">
+      <h2 class="section-title">Currently inside</h2>
+      <table>
+        <thead>
+          <tr><th>UID</th><th>Name</th><th>Vehicle</th></tr>
+        </thead>
+        <tbody id="inside-body">
+          <tr><td colspan="3" class="empty-row">Loading...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <div id="toast-container"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

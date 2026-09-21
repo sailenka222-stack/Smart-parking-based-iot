@@ -1,0 +1,9 @@
+../Core/Src/display.c:6:6:HomeScreen	40	static
+../Core/Src/display.c:28:6:WelcomeScreen	24	static
+../Core/Src/display.c:42:6:StartupScreen	16	static
+../Core/Src/display.c:56:6:AccessDeniedScreen	16	static
+../Core/Src/display.c:68:6:ParkingFullScreen	16	static
+../Core/Src/display.c:83:6:GateOpenScreen	16	static
+../Core/Src/display.c:92:6:GateCountdownScreen	32	static
+../Core/Src/display.c:108:6:ThankYouScreen	16	static
+../Core/Src/display.c:122:6:FeeScreen	48	static

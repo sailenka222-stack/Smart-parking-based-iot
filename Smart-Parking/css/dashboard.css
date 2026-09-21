@@ -1,0 +1,102 @@
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat__label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.stat__value {
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.stat__value--yellow { color: var(--yellow); }
+
+.section-title {
+  font-size: 15px;
+  margin: 0 0 16px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.empty-row {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Toast notification - payment received popup */
+#toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--panel);
+  border: 1px solid var(--panel-line);
+  border-left: 4px solid var(--yellow);
+  border-radius: 10px;
+  padding: 14px 18px;
+  min-width: 280px;
+  max-width: 340px;
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.6);
+  animation: toast-in 0.25s ease;
+}
+
+.toast.leaving {
+  animation: toast-out 0.25s ease forwards;
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes toast-out {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(20px); }
+}
+
+.toast__icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(245, 183, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--yellow);
+}
+
+.toast__title {
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0 0 4px;
+}
+
+.toast__body {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}

@@ -1,0 +1,229 @@
+body.with-sidebar {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  background: var(--panel);
+  border-right: 1px solid var(--panel-line);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 0 8px;
+  margin-bottom: 32px;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--yellow);
+  box-shadow: 0 0 10px rgba(245, 183, 0, 0.6);
+  flex-shrink: 0;
+}
+
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.sidebar__link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 12px;
+  border-radius: 8px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.sidebar__link:hover {
+  background: rgba(245, 183, 0, 0.06);
+  color: var(--text);
+}
+
+.sidebar__link.active {
+  background: rgba(245, 183, 0, 0.12);
+  color: var(--yellow);
+  font-weight: 600;
+}
+
+.sidebar__icon {
+  width: 18px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.sidebar__logout {
+  background: transparent;
+  border: 1px solid var(--panel-line);
+  color: var(--text-muted);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.sidebar__logout:hover {
+  border-color: var(--yellow-dim);
+  color: var(--yellow);
+}
+
+/* --- Main content --- */
+.content {
+  flex: 1;
+  min-width: 0;
+  padding: 56px 48px 80px;
+}
+
+/* --- Hero --- */
+.hero {
+  max-width: 640px;
+  margin-bottom: 48px;
+}
+
+.eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--yellow);
+  margin: 0 0 14px;
+}
+
+.hero h1 {
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin: 0 0 18px;
+}
+
+.hero__sub {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0 0 28px;
+  max-width: 520px;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  background: var(--yellow);
+  text-decoration: none;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+.btn:hover { filter: brightness(1.08); }
+
+.btn--ghost {
+  background: transparent;
+  border: 1px solid var(--panel-line);
+  color: var(--text);
+}
+
+.btn--ghost:hover {
+  border-color: var(--yellow-dim);
+  filter: none;
+}
+
+/* --- Quick access grid --- */
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.tile {
+  position: relative;
+  display: block;
+  background: var(--panel);
+  border: 1px solid var(--panel-line);
+  border-radius: 12px;
+  padding: 22px 20px;
+  text-decoration: none;
+  color: var(--text);
+  overflow: hidden;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.tile::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: repeating-linear-gradient(115deg, var(--yellow) 0 12px, #1a1a1a 12px 24px);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.tile:hover {
+  transform: translateY(-3px);
+  border-color: var(--yellow-dim);
+}
+
+.tile:hover::before { opacity: 1; }
+
+.tile__index {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--yellow);
+  margin-bottom: 12px;
+}
+
+.tile h2 {
+  font-size: 17px;
+  margin: 0 0 6px;
+}
+
+.tile p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 860px) {
+  body.with-sidebar { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: static; flex-direction: row; flex-wrap: wrap; }
+  .sidebar__nav { flex-direction: row; flex-wrap: wrap; }
+  .sidebar__brand { margin-bottom: 0; margin-right: auto; }
+  .content { padding: 32px 20px 60px; }
+  .hero h1 { font-size: 28px; }
+}

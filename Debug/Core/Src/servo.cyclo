@@ -1,0 +1,4 @@
+../Core/Src/servo.c:14:6:Servo_Init	1
+../Core/Src/servo.c:22:6:Servo_OpenSlow	2
+../Core/Src/servo.c:38:6:Servo_CloseSlow	2
+../Core/Src/servo.c:53:6:OpenGate	2

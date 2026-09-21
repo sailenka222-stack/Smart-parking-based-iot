@@ -1,0 +1,14 @@
+.cam-panel{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:500px;
+}
+
+#cam-feed{
+    width:100%;
+    max-width:900px;
+    border-radius:12px;
+    border:2px solid var(--panel-line);
+    object-fit:cover;
+}

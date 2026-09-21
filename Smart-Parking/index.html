@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parking Arena · Sign In</title>
+<link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+  <div class="scene">
+    <div class="barrier" aria-hidden="true"></div>
+
+    <main class="card">
+      <div class="card__stripe" aria-hidden="true"></div>
+
+      <div class="card__body">
+        <p class="eyebrow">ACCESS CONTROL</p>
+        <h1>Parking Arena</h1>
+        <p class="sub">Sign in to manage gates, users and slot status.</p>
+
+        <form id="login-form" novalidate>
+          <label class="field">
+            <span>Email</span>
+            <input type="email" id="email" name="email" autocomplete="username" required>
+          </label>
+
+          <label class="field">
+            <span>Password</span>
+            <input type="password" id="password" name="password" autocomplete="current-password" required>
+          </label>
+
+          <p id="error-msg" class="error" role="alert" hidden></p>
+
+          <button type="submit" class="btn">Sign in</button>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>
